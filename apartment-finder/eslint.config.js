@@ -1,23 +1,34 @@
-module.exports = {
-  root: true,
-  parser: '@babel/eslint-parser',
-  env: {
-    browser: true,
-    node: true,
-    es6: true,
+const reactPlugin = require('eslint-plugin-react');
+const reactRefreshPlugin = require('eslint-plugin-react-refresh');
+const prettierPlugin = require('eslint-plugin-prettier');
+const typescriptEslintParser = require('@typescript-eslint/parser');
+const typescriptEslintPlugin = require('@typescript-eslint/eslint-plugin');
+
+const config = {
+  languageOptions: {
+    parser: typescriptEslintParser, // Set the parser here
+    parserOptions: {
+      ecmaVersion: 2020,
+      sourceType: 'module',
   },
-  globals: {
-    browser: true,
-    shallow: true,
-    mount: true,
+    globals: {
+      browser: true,
+      shallow: true,
+      mount: true,
+    },
   },
-  plugins: ['react', 'react-refresh'],
+  plugins: {
+    react: reactPlugin,
+    'react-refresh': reactRefreshPlugin,
+    '@typescript-eslint': typescriptEslintPlugin,
+    prettier: prettierPlugin,
+},
   settings: {
     react: {
       version: 'detect',
     },
   },
-  extends: ['eslint:recommended', 'prettier', 'plugin:react/recommended'],
+
   rules: {
     'max-len': ['error', 100],
     'comma-dangle': 2,
@@ -53,21 +64,24 @@ module.exports = {
     'new-cap': 1,
     'object-curly-spacing': 0,
     semi: ['error'],
-    '@typescript-eslint/semi': ['error'],
     quotes: [2, 'single'],
-    'react-refresh/only-export-components': ['warn', { allowConstantExports: true }],
-    'prettier.singleQuote': true,
-    'prettier.printWidth': 100,
+    "react-refresh/only-export-components": ["error", {
+      "allowConstantExport": true,
+      "checkJS": false,
+      "allowExportNames": []
+    }],
     // Rules for React
     'react/display-name': 0,
     'react/jsx-no-undef': 1,
     'react/jsx-sort-props': 1,
     'react/jsx-uses-react': 1,
     'react/jsx-uses-vars': 1,
-    'react/no-mult-comp': [1, { ignoreStateless: true }],
+    'react/no-multi-comp': [1, { ignoreStateless: true }],
     'react/no-unknown-property': 1,
     'react/prop-types': 1,
     'react/react-in-jsx-scope': 1,
     'react/sort-prop-types': 1,
   },
 };
+
+module.exports = config;
