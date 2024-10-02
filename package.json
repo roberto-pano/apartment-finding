@@ -5,7 +5,11 @@
   "main": "index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format:check": "prettier --check \"src/**/**.(js|jsx|ts|tsx|json|yaml|css)\"",
+    "format:write": "prettier --write \"src/**/**.(js|jsx|ts|tsx|json|yaml|css)\"",
+    "lint": "eslint . --max-warnings=0 --ext .ts,.tsx",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "types:check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -23,6 +27,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-react": "^7.24.7",
+    "@testing-library/react": "^16.0.1",
     "@types/node": "^22.7.4",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",

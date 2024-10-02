@@ -1,21 +1,18 @@
 {
-    "presets": [
-        "@babel/preset-react",
-        "@babel/typescript",
-        [
-            "@babel/preset-env",
-            {
-                "targets": {
-                    "browsers": [
-                        "only 1 version"
-                    ]
-                }
-            }
-        ]
-    ],
-    "plugins": [
-        "@babel/plugin-proposal-object-rest-spread",
-        "@babel/plugin-proposal-class-properties"
+  "presets": [
+    "@babel/preset-react",
+    "@babel/typescript",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": ["only 1 version"]
+        }
+      }
     ]
-
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-class-properties"
+  ]
 }
