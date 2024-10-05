@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react"
+        // Add other compiler options here
+    },
+    "include": [
+        "src/**/*",
+        "tsconfig.json",
+        ".eslintrc.ts" // Add this line
+    ],
+    "exclude": ["node_modules", "build"]
+}
